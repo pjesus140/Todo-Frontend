@@ -1,0 +1,44 @@
+#signin {
+    margin-left: 42.5%;
+}
+
+#passH {
+    margin-top: 5%;
+}
+
+#submitButton {
+    margin-top: 5%;
+    
+}
+
+#registerButton {
+    margin-top: 5%;
+    margin-left: 30%;
+}
+#LogIn {
+    margin-left: 90%;
+}
+
+#LogOut {
+    margin-left: 1%;
+}
+
+body {
+    background-image: url("jeshoots-com-pUAM5hPaCRI-unsplash.jpg") ;
+    background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#test123 {
+    position: fixed;
+    height: 75%;
+    
+    width: 10%;
+
+    overflow-y: scroll;
+}
+
+#More {
+    margin-left: 90%;
+
+}

@@ -1,0 +1,74 @@
+#Header {   
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+}
+
+#signin {
+    margin-left: 42.5%;
+}
+
+#passH {
+    margin-top: 5%;
+}
+
+#submitButton {
+    margin-top: 5%;    
+}
+
+#registerButton {
+    margin-top: 5%;
+    margin-left: 30%;
+}
+#LogIn {
+    margin-left: 90%;
+}
+
+#LogOut {
+    margin-left: 1%;
+}
+
+#More {
+    margin-left: 90%;
+}
+body {
+    background-image: url("jeshoots-com-pUAM5hPaCRI-unsplash.jpg");
+    background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#sideBar {
+    min-width: 100%;
+    height: 74vh;
+    background-color:rgb(123, 184, 212);
+    overflow-y: scroll;
+    margin-right: -3.3%;
+    opacity: 0.95;
+    
+}
+
+.textarea1 {
+    min-width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+
+
+
+/* #NameOfList p{
+    
+    display: inline;
+    width: 800px;
+} */
+
+
+
+#ListOfnames {
+    background-color: rgb(111, 133, 182);
+    opacity: 0.7;
+    
+}

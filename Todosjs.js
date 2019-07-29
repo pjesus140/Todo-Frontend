@@ -200,6 +200,7 @@ function getAllList() {
                 var addTask = document.getElementById("task");
                 if (addTask.style.display === "none") {
                     addTask.style.display = "block";
+                    getAllTask(divCard.id);
 
                     ListIdTasks = divCard.id;
                 } else {
@@ -349,7 +350,7 @@ function addTask(ListId){
 
             window.alert("task Added");
 
-            getAllList();
+            getAllTask(ListIdTasks);
 
 
 
@@ -366,20 +367,20 @@ function addTask(ListId){
 
 }
 
-function getAllTask(listId) {
+function getAllTask(ListId) {
 
-    const urlCheck = "http://localhost:8080/TodoBackend/api/Lists/getAll/" + sessionStorage.getItem("userId");
-
-
+    const urlCheckTask = "http://localhost:8080/TodoBackend/api/Tasks/getAll/" + ListId;
 
 
 
-    makeRequest('Get', urlCheck).then(value => {
+
+
+    makeRequest('Get', urlCheckTask).then(value => {
 
         console.log('IT WORKS', value);
 
 
-        const parent2 = document.getElementById('sideBar');
+        const parent2 = document.getElementById('listTasks');
         while (parent2.firstChild) {
             parent2.removeChild(parent2.firstChild);
         }
@@ -388,56 +389,42 @@ function getAllTask(listId) {
         for (x of value) {
 
 
-            const divCard = document.createElement('div');
-            divCard.id = x.listId;
-            divCard.className = "card card-body";
+            const divCardTask = document.createElement('div');
+            divCardTask.id = 'taskId'+x.taskId;
+            divCardTask.className = "card card-body";
 
-            const title = document.createElement('h5');
+            const title = document.createElement('p');
             
-            title.innerText = x.listName;
-            const renameList = document.createElement('button');
-            const deleteListB = document.createElement('button');
+            title.innerText = x.taskText;
+            
+            const deleteTaskB = document.createElement('button');
 
-            divCard.addEventListener('click', () => {
-
-
-                var addTask = document.getElementById("task");
-                if (addTask.style.display === "none") {
-                    addTask.style.display = "block";
-                } else {
-                    addTask.style.display = "none";
-                }
-
-
-
-            });
+            
 
 
 
 
-            renameList.addEventListener('click', (ev) => {
-                $("#RenameModal").modal('toggle');
-                renameID = ev.target.parentNode.id.substring(listID.length);
-            });
+          
 
-            deleteListB.addEventListener('click', () => {
+            deleteTaskB.addEventListener('click', () => {
+
+                DeleteTask(divCardTask.id.substring(divCardTask.id.length - 1));
 
 
-                DeleteList(divCard.id);
+                getAllTask(ListIdTasks);
 
 
             });
-            renameList.innerText = 'Rename List';
-
-            deleteListB.innerText = 'Delete List';
-
-
-            divCard.append(title);
-            divCard.append(renameList);
-            divCard.append(deleteListB);
+            
+            deleteTaskB.innerText = 'Delete Task';
 
 
-            parent2.append(divCard);
+            divCardTask.append(title);
+           
+            divCardTask.append(deleteTaskB);
+
+
+            parent2.append(divCardTask);
 
         }
 
@@ -495,4 +482,36 @@ function getAllTask(listId) {
 }
 
 
+function DeleteTask(taskId){
 
+    const urlDeleteList = "http://localhost:8080/TodoBackend/api/Tasks/delete/" + taskId;
+
+
+
+
+
+    makeRequest('DELETE', urlDeleteList, null).then(value => {
+
+        console.log('IT WORKS', value);
+        if (value.Success == "True") {
+
+
+
+            window.alert("list Deleted");
+
+            getAllTask(ListIdTasks);
+
+
+
+
+        } else { window.alert("something bad happened") };
+
+
+
+
+
+
+
+    });
+
+}

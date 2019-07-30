@@ -4,6 +4,8 @@ function goReg() {
     window.location = 'TodoReg.html'
 };
 
+
+
 function goTodos() {
 
 
@@ -39,6 +41,8 @@ function goTodos() {
         console.log('IT WORKS', value);
         if(value.Success == "True"){
             sessionStorage.setItem("userId", value.userId);
+            sessionStorage.setItem("username",value.username);
+
             window.location = 'Todos.html';
 
 

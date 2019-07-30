@@ -28,7 +28,7 @@
 }
 
 #More {
-    margin-left: 90%;
+    margin-left: 95%;
 }
 body {
     background-image: url("jeshoots-com-pUAM5hPaCRI-unsplash.jpg");
@@ -69,6 +69,11 @@ body {
 
 #ListOfnames {
     background-color: rgb(111, 133, 182);
-    opacity: 0.7;
+    opacity: 0.9;
     
+}
+
+#task {
+    margin-top: 10%;
+    margin-left: 75%;
 }

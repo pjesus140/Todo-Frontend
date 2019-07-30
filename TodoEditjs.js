@@ -35,6 +35,7 @@ function changeUsername() {
         if (value.Success == "True") {
 
             window.alert("New username:"+name);
+            sessionStorage.setItem('username',name)
 
 
         } else {

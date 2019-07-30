@@ -1,6 +1,8 @@
-
+const helloUser = document.getElementById('helloName');
+helloUser.innerText = 'Hello ' + sessionStorage.getItem('username');
 
 function goLog(event) {
+    sessionStorage.removeItem('userId');
 
 
     window.location = 'TodoLogin.html'
@@ -60,7 +62,7 @@ function goEdit() {
 
 function addList() {
 
-    
+
 
     const newName = document.getElementById('addListName').value;
 
@@ -80,9 +82,15 @@ function addList() {
         console.log('IT WORKS', value);
         if (value.Success == "True") {
 
+            
+
+            
+                $('#addListModal').modal('hide');
+            
 
 
-            window.alert("List created: " + newName);
+
+            // window.alert("List created: " + newName);
 
             getAllList();
 
@@ -107,6 +115,10 @@ function renameListF() {
     document.getElementById("ListName" + renameID).innerText = input.value;
 };
 
+
+var task = document.getElementById("task");
+
+task.style.display = "none";
 
 function delAcc() {
 
@@ -187,9 +199,12 @@ function getAllList() {
             const divCard = document.createElement('div');
             divCard.id = x.listId;
             divCard.className = "card card-body";
+            if (divCard.id == ListIdTasks) {
+                divCard.className = "card card-body bg-success"
+            }
 
             const title = document.createElement('h5');
-            
+
             title.innerText = x.listName;
             const renameList = document.createElement('button');
             const deleteListB = document.createElement('button');
@@ -197,17 +212,14 @@ function getAllList() {
             divCard.addEventListener('click', () => {
 
 
-                var addTask = document.getElementById("task");
-                if (addTask.style.display === "none") {
-                    addTask.style.display = "block";
-                    getAllTask(divCard.id);
+                ListIdTasks = divCard.id;
+                getAllTask(divCard.id);
+                getAllList();
 
-                    ListIdTasks = divCard.id;
-                } else {
-                    addTask.style.display = "none";
+                if (task.style.display === "none") {
+                    task.style.display = "block";
+
                 }
-
-
 
             });
 
@@ -223,6 +235,11 @@ function getAllList() {
 
 
                 DeleteList(divCard.id);
+
+                const parentDel = document.getElementById('listTasks');
+                while (parentDel.firstChild) {
+                    parentDel.removeChild(parentDel.firstChild);
+                }
 
 
             });
@@ -329,7 +346,7 @@ function DeleteList(ListId) {
     });
 }
 
-function addTask(ListId){
+function addTask(ListId) {
 
     const info = document.getElementById("taskText").value;
 
@@ -348,9 +365,10 @@ function addTask(ListId){
 
 
 
-            window.alert("task Added");
+            
 
             getAllTask(ListIdTasks);
+            $('#TaskModal').modal('hide');
 
 
 
@@ -390,37 +408,37 @@ function getAllTask(ListId) {
 
 
             const divCardTask = document.createElement('div');
-            divCardTask.id = 'taskId'+x.taskId;
+            divCardTask.id = 'taskId' + x.taskId;
             divCardTask.className = "card card-body";
 
             const title = document.createElement('p');
-            
+
             title.innerText = x.taskText;
-            
+
             const deleteTaskB = document.createElement('button');
 
-            
 
 
 
 
-          
+
+
 
             deleteTaskB.addEventListener('click', () => {
 
-                DeleteTask(divCardTask.id.substring(divCardTask.id.length - 1));
+                DeleteTask(divCardTask.id.substring(6));
 
 
                 getAllTask(ListIdTasks);
 
 
             });
-            
+
             deleteTaskB.innerText = 'Delete Task';
 
 
             divCardTask.append(title);
-           
+
             divCardTask.append(deleteTaskB);
 
 
@@ -482,7 +500,7 @@ function getAllTask(ListId) {
 }
 
 
-function DeleteTask(taskId){
+function DeleteTask(taskId) {
 
     const urlDeleteList = "http://localhost:8080/TodoBackend/api/Tasks/delete/" + taskId;
 

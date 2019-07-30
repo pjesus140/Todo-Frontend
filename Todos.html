@@ -22,7 +22,7 @@
 <body onload="getAllList();">
 
     <div id="Header" class="jumbotron text-center">
-        <h1>Hello Username</h1>
+        <h1 id="helloName"> Hello Username</h1>
         <p></p>
 
         <div id="More" class="btn-group">
@@ -47,8 +47,11 @@
         <div class="row">
             <div id="ListOfnames" class="col">
 
-                <p id="a123">List of ToDo's <button data-toggle="modal" data-target="#addListModal" id="b123">Add
-                        List</button></p>
+                <p id="a123"><strong>List of ToDo's</strong> 
+                    <button data-toggle="modal" data-target="#addListModal" id="b123">
+                        Add List
+                    </button>
+                </p>
                 <div id="sideBar">
 
 
@@ -56,23 +59,25 @@
 
             </div>
 
-            <div id= 'listTasks' class="col">
-                <p id="names">List name </p>
+            <div id='listTasks' class="col">
+                <!-- <p id="names">List name </p> -->
             </div>
 
-            <div class="col"><button type="button" data-toggle="modal" data-target="#RenameModal" id="rename">Rename
-                    List</button></div>
-            <div class="col"><button type="button" data-toggle="modal" data-target="#TaskModal" id="task">Add
+            <div class="col">
+                <!-- <button type="button" data-toggle="modal" data-target="#RenameModal" id="rename">Rename
+                    List</button> -->
+            </div>
+            <div class="col"><button class='btn btn-primary' type="button" data-toggle="modal" data-target="#TaskModal" id="task">Add
                     task</button>
 
-                <button id="delete">Delete List</button></div>
+                <!-- <button id="delete">Delete List</button></div> -->
 
 
 
+            </div>
         </div>
-    </div>
 
-    <!-- <div class="" id="ListOfList" style="background-color:rgb(235, 243, 123);">
+        <!-- <div class="" id="ListOfList" style="background-color:rgb(235, 243, 123);">
                 <button id="b123">Add List</button>
                 <p id="a123">List of ToDo's</p>
             
@@ -82,143 +87,143 @@
             
                 <button id="delete">Delete List</button>
             </div> -->
-    <!-- <div id="NameOfList" style="background-color:rgb(143, 252, 110);">
+        <!-- <div id="NameOfList" style="background-color:rgb(143, 252, 110);">
                 <p>List names</p>
             </div> -->
 
 
-    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Before you can edit account details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6 id="passH" class="card-subtitle mb-2 text-muted">Confirm Password</h6>
-                    <input placeholder="Password" class="inputs" id="editPassword" type="password">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button onclick="goEdit()" type="button" class="btn btn-primary">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Before you can Delete Account</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6 id="passH" class="card-subtitle mb-2 text-muted">Confirm Password</h6>
-                    <input placeholder="Password" class="inputs" id="delPassword" type="password">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button onclick="delAcc()" type="button" class="btn btn-primary">Confirm</button>
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Before you can edit account details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 id="passH" class="card-subtitle mb-2 text-muted">Confirm Password</h6>
+                        <input placeholder="Password" class="inputs" id="editPassword" type="password">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="goEdit()" type="button" class="btn btn-primary">Confirm</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Enter task details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+
+        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Before you can Delete Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 id="passH" class="card-subtitle mb-2 text-muted">Confirm Password</h6>
+                        <input placeholder="Password" class="inputs" id="delPassword" type="password">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="delAcc()" type="button" class="btn btn-primary" >Confirm</button>
+                    </div>
                 </div>
-                <div class="modal-body">
+            </div>
+        </div>
 
-                    <textarea rows="5" cols="63" id="taskText">
+        <div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Enter task details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <textarea rows="5" cols="63" id="taskText">
                                 </textarea>>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button onclick="addTask(ListIdTasks)" type="button" class="btn btn-primary">Add Task</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="RenameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Change List name</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-
-                    <input placeholder="List Name" class="inputs" id="NewName" type="text">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button onclick="renameListF()" type="button" class="btn btn-primary">Rename</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="addTask(ListIdTasks)" type="button" class="btn btn-primary">Add Task</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="addListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Choose list name</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+        <div class="modal fade" id="RenameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Change List name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
 
 
-                    <input placeholder="List Name" class="inputs" id="addListName" type="text">
-                </div>
-                <div class="modal-footer">
-                    <button onclick="getAllList()" type="button" class="btn btn-secondary"
-                        data-dismiss="modal">Close</button>
-                    <button onclick="addList()" type="button" class="btn btn-primary">Confirm List</button>
+                        <input placeholder="List Name" class="inputs" id="NewName" type="text">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="renameListF()" type="button" class="btn btn-primary">Rename</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="modal fade" id="addListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Choose list name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <input placeholder="List Name" class="inputs" id="addListName" type="text">
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="getAllList()" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                        <button id="addListToSide" onclick="addList()" type="button" class="btn btn-primary" data-trigger="focus" data-content="List added">Confirm List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-    <!--[if lt IE 7]>
+        <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <script src="Todosjs.js" async defer></script>
-    <script src="requestjs.js" async defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        <script src="Todosjs.js" async defer></script>
+        <script src="requestjs.js" async defer></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

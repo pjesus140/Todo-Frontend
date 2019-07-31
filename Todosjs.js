@@ -24,7 +24,7 @@ function goEdit() {
     console.log(JSON.stringify(jsonReg));
 
 
-    const urlCheck = "http://localhost:8080/TodoBackend/api/Users/CheckDel/" + sessionStorage.getItem("userId");
+    const urlCheck = "http://35.246.3.91:8081/TodoBackend/api/Users/CheckDel/" + sessionStorage.getItem("userId");
 
 
 
@@ -35,7 +35,7 @@ function goEdit() {
         console.log('IT WORKS', value);
         if (value.Success == "True") {
 
-            const urlDelete = "http://localhost:8080/TodoBackend/api/Users/delete/" + sessionStorage.getItem("userId");
+            const urlDelete = "http://35.246.3.91:8081/TodoBackend/api/Users/delete/" + sessionStorage.getItem("userId");
 
 
 
@@ -71,7 +71,7 @@ function addList() {
 
     };
 
-    const urlCreateList = "http://localhost:8080/TodoBackend/api/Lists/create/" + sessionStorage.getItem("userId");
+    const urlCreateList = "http://35.246.3.91:8081/TodoBackend/api/Lists/create/" + sessionStorage.getItem("userId");
 
 
 
@@ -139,7 +139,7 @@ function delAcc() {
     console.log(JSON.stringify(jsonDel));
 
 
-    const urlCheck = "http://localhost:8080/TodoBackend/api/Users/CheckDel/" + sessionStorage.getItem("userId");
+    const urlCheck = "http://35.246.3.91:8081/TodoBackend/api/Users/CheckDel/" + sessionStorage.getItem("userId");
 
 
 
@@ -150,7 +150,7 @@ function delAcc() {
         console.log('IT WORKS', value);
         if (value.Success == "True") {
 
-            const urlDelete = "http://localhost:8080/TodoBackend/api/Users/delete/" + sessionStorage.getItem("userId");
+            const urlDelete = "http://35.246.3.91:8081/TodoBackend/api/Users/delete/" + sessionStorage.getItem("userId");
 
 
 
@@ -176,7 +176,7 @@ let ListIdTasks;
 
 function getAllList() {
 
-    const urlCheck = "http://localhost:8080/TodoBackend/api/Lists/getAll/" + sessionStorage.getItem("userId");
+    const urlCheck = "http://35.246.3.91:8081/TodoBackend/api/Lists/getAll/" + sessionStorage.getItem("userId");
 
 
 
@@ -208,6 +208,7 @@ function getAllList() {
             title.innerText = x.listName;
             const renameList = document.createElement('button');
             const deleteListB = document.createElement('button');
+            deleteListB.className="btn btn-danger";
 
             divCard.addEventListener('click', () => {
 
@@ -315,7 +316,7 @@ function DeleteList(ListId) {
 
 
 
-    const urlDeleteList = "http://localhost:8080/TodoBackend/api/Lists/delete/" + ListId;
+    const urlDeleteList = "http://35.246.3.91:8081/TodoBackend/api/Lists/delete/" + ListId;
 
 
 
@@ -350,7 +351,7 @@ function addTask(ListId) {
 
     const info = document.getElementById("taskText").value;
 
-    const urlAddTask = "http://localhost:8080/TodoBackend/api/Tasks/create/" + ListId;
+    const urlAddTask = "http://35.246.3.91:8081/TodoBackend/api/Tasks/create/" + ListId;
 
     let jsonCreateTask = {
         taskText: info
@@ -387,7 +388,7 @@ function addTask(ListId) {
 
 function getAllTask(ListId) {
 
-    const urlCheckTask = "http://localhost:8080/TodoBackend/api/Tasks/getAll/" + ListId;
+    const urlCheckTask = "http://35.246.3.91:8081/TodoBackend/api/Tasks/getAll/" + ListId;
 
 
 
@@ -416,7 +417,7 @@ function getAllTask(ListId) {
             title.innerText = x.taskText;
 
             const deleteTaskB = document.createElement('button');
-
+            deleteTaskB.className="btn btn-danger";
 
 
 
@@ -502,7 +503,7 @@ function getAllTask(ListId) {
 
 function DeleteTask(taskId) {
 
-    const urlDeleteList = "http://localhost:8080/TodoBackend/api/Tasks/delete/" + taskId;
+    const urlDeleteList = "http://35.246.3.91:8081/TodoBackend/api/Tasks/delete/" + taskId;
 
 
 

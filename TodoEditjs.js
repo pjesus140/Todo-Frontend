@@ -23,7 +23,7 @@ function changeUsername() {
     console.log(JSON.stringify(jsonReg));
 
 
-    const urlEdit = "http://localhost:8080/TodoBackend/api/Users/updateName/"+sessionStorage.getItem("userId");
+    const urlEdit = "http://35.246.3.91:8081/TodoBackend/api/Users/updateName/"+sessionStorage.getItem("userId");
 
 
 
@@ -73,7 +73,7 @@ function changePassword() {
     console.log(JSON.stringify(jsonReg));
 
 
-    const urlEdit = "http://localhost:8080/TodoBackend/api/Users/updatePass/"+sessionStorage.getItem("userId");
+    const urlEdit = "http://35.246.3.91:8081/TodoBackend/api/Users/updatePass/"+sessionStorage.getItem("userId");
 
 
 

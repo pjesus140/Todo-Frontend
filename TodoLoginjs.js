@@ -30,7 +30,7 @@ function goTodos() {
     console.log(JSON.stringify(jsonReg));
 
 
-    const urlCheck = "http://localhost:8080/TodoBackend/api/Users/Check";
+    const urlCheck = "http://35.246.3.91:8081/TodoBackend/api/Users/Check";
 
 
 

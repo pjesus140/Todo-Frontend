@@ -30,7 +30,7 @@ function goReg() {
     console.log(JSON.stringify(jsonReg));
 
 
-    const urlCreate = "http://localhost:8080/TodoBackend/api/Users/create";
+    const urlCreate = "http://35.246.3.91:8081/TodoBackend/api/Users/create";
 
 
 

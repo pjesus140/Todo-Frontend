@@ -28,13 +28,14 @@
         <div class="card-body">
             <h5 class="card-title">Login</h5>
             <h6 id="userH" class="card-subtitle mb-2 text-muted">Enter Username</h6>
-            <input placeholder="Username" class="inputs" id="name" type="text">
-            <h6 id="passH" class="card-subtitle mb-2 text-muted">Enter Password</h6>
-            <input placeholder="Password" class="inputs" id="password" type="password">
-    
-            <button onclick="goTodos()" id="submitButton" type="button" class="btn btn-info">Submit</button>
-            <button onclick="goReg()" id="registerButton" type="button" class="btn btn-info">Register</button>
-    
+            <form onsubmit="return goTodos()">
+                <input placeholder="Username" class="inputs" id="name" type="text">
+                <h6 id="passH" class="card-subtitle mb-2 text-muted">Enter Password</h6>
+                <input onkeypress="13" placeholder="Password" class="inputs" id="password" type="password">
+                <button onclick="goTodos()" id="submitButton" type="submit" class="btn btn-info">Submit</button>
+                <button onclick="goReg()" id="registerButton" type="button" class="btn btn-info">Register</button>
+            </form>
+
         </div>
     </div>
 </Div>

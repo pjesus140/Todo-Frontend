@@ -97,7 +97,7 @@ function addList() {
 
 
 
-        } else { window.alert("something bad happened") };
+        } else { window.alert("please add a List Name") };
 
 
 
@@ -109,10 +109,31 @@ function addList() {
 }
 
 function renameListF() {
+    const urlRename = "http://35.246.3.91:8081/TodoBackend/api/Lists/update/" + ListIdRename;
 
 
-    const input = document.getElementById("NewName");
-    document.getElementById("ListName" + renameID).innerText = input.value;
+    const input = document.getElementById("NewName").value;
+
+    // document.getElementById("ListName" + renameID).innerText = input.value;
+    let jsonRename = {
+        listName: input
+    };
+
+    makeRequest('Post', urlRename, JSON.stringify(jsonRename)).then(value => {
+
+        console.log('IT WORKS', value);
+        if (value.Success == "True") {
+            $("#RenameModal").modal('hide');
+
+            getAllList();
+
+
+        } else { window.alert("Please set a new List Name") }
+
+
+
+    });
+
 };
 
 
@@ -173,6 +194,7 @@ function delAcc() {
 
 
 let ListIdTasks;
+let ListIdRename;
 
 function getAllList() {
 
@@ -227,9 +249,10 @@ function getAllList() {
 
 
 
-            renameList.addEventListener('click', (ev) => {
+            renameList.addEventListener('click', () => {
                 $("#RenameModal").modal('toggle');
-                renameID = ev.target.parentNode.id.substring(listID.length);
+                ListIdRename = divCard.id;
+                // renameID = ev.target.parentNode.id.substring(listID.length);
             });
 
             deleteListB.addEventListener('click', () => {
@@ -374,7 +397,7 @@ function addTask(ListId) {
 
 
 
-        } else { window.alert("something bad happened") };
+        } else { window.alert("please enter your task") };
 
 
 

@@ -52,5 +52,5 @@ function goTodos() {
 
     });
 
-    return true;
+    return false;
 };

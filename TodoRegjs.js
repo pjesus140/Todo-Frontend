@@ -44,7 +44,7 @@ function goReg() {
             window.alert("Account made Successfully");
             window.location = 'TodoLogin.html';
         }else{
-            window.alert("Username Taken");
+            window.alert("Username Taken or Invalid username/password");
             document.getElementById("name").value ="";
 
 

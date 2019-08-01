@@ -61,7 +61,7 @@ function changePassword() {
 
         console.log(newPassword.innertext);
     }else{
-        window.alert("Passwords dont match")
+        window.alert("Passwords don't match")
         return null;
     }
 
@@ -88,7 +88,7 @@ function changePassword() {
 
 
         } else {
-            window.alert("no account match");
+            window.alert("Invalid password");
          }
 
 

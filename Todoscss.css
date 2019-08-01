@@ -37,7 +37,7 @@ body {
 }
 
 #sideBar {
-    min-width: 100%;
+    min-width: 105%;
     height: 74vh;
     background-color:rgb(123, 184, 212);
     overflow-y: scroll;
@@ -67,6 +67,11 @@ body {
 
 #taskText {
     width: 100%;
+}
+#listTasks {
+    opacity: 0.92;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 #ListOfnames {

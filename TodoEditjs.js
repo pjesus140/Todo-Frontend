@@ -1,5 +1,6 @@
 function goTodos() {
-
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('username');
 
     window.location = 'Todos.html'
 };

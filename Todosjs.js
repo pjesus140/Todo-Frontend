@@ -3,6 +3,7 @@ helloUser.innerText = 'Hello ' + sessionStorage.getItem('username');
 
 function goLog(event) {
     sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('username');
 
 
     window.location = 'TodoLogin.html'
@@ -82,11 +83,11 @@ function addList() {
         console.log('IT WORKS', value);
         if (value.Success == "True") {
 
-            
 
-            
-                $('#addListModal').modal('hide');
-            
+
+
+            $('#addListModal').modal('hide');
+
 
 
 
@@ -178,6 +179,8 @@ function delAcc() {
             makeRequest('DELETE', urlDelete, null).then(value => {
                 console.log('IT WORKS', value);
                 window.alert("Account Deleted");
+                sessionStorage.removeItem('userId');
+                sessionStorage.removeItem('username');
 
                 window.location = 'TodoLogin.html';
             });
@@ -230,7 +233,7 @@ function getAllList() {
             title.innerText = x.listName;
             const renameList = document.createElement('button');
             const deleteListB = document.createElement('button');
-            deleteListB.className="btn btn-danger";
+            deleteListB.className = "btn btn-danger";
 
             divCard.addEventListener('click', () => {
 
@@ -389,7 +392,7 @@ function addTask(ListId) {
 
 
 
-            
+
 
             getAllTask(ListIdTasks);
             $('#TaskModal').modal('hide');
@@ -440,7 +443,7 @@ function getAllTask(ListId) {
             title.innerText = x.taskText;
 
             const deleteTaskB = document.createElement('button');
-            deleteTaskB.className="btn btn-danger";
+            deleteTaskB.className = "btn btn-danger";
 
 
 

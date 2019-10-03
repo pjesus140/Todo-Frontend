@@ -1,12 +1,10 @@
 function goTodos() {
-    sessionStorage.removeItem('userId');
-    sessionStorage.removeItem('username');
-
     window.location = 'Todos.html'
 };
 
 function goLog() {
-
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('username');
 
     window.location = 'TodoLogin.html'
 };
